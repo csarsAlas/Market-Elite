@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Calibri", sans-serif;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    background: #e0f7fa; /* Color de fondo suave y claro */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+    padding: 20px; /* Agregado para separar las tarjetas del borde */
+}
+
+.container .card {
+    width: 300px; /* Ajustado para un diseño más uniforme */
+    height: 400px; /* Ajustado para un diseño más uniforme */
+    border-radius: 12px; /* Esquinas redondeadas más suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 15px;
+    text-align: center;
+    transition: all 0.3s ease-in-out; /* Transición más suave */
+    background: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd; /* Borde ligero para las tarjetas */
+}
+
+.container .card:hover {
+    transform: translateY(-10px); /* Efecto de elevar la tarjeta al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+.container .card img {
+    width: 100%; /* Ajustado para que la imagen ocupe todo el ancho */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+.container .card h4 {
+    font-weight: 600;
+    margin: 15px 0;
+    color: #333; /* Color del texto */
+}
+
+.container .card p {
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    color: #555; /* Color del texto */
+}
+
+.container .card a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #007bff; /* Color del enlace */
+    transition: color 0.3s ease-in-out; /* Transición suave para el color del enlace */
+}
+
+.container .card a:hover {
+    color: #0056b3; /* Color del enlace al pasar el cursor */
+}
+
+.header {
+    padding: 20px;
+    border: 2px solid #80deea; /* Borde del header con color más suave */
+    text-align: center;
+    font-size: 18px; /* Tamaño de fuente más grande */
+    background: #fafafa; /* Color de fondo claro para el header */
+    color: #00796b; /* Color del texto del header */
+    border-radius: 8px; /* Esquinas redondeadas */
+}
+
+

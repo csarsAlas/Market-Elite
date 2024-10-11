@@ -1,0 +1,105 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Calibri", serif;
+	background: rgb(248,240,223);
+}
+
+form input{
+	background: rgb(248,240,223);
+}
+
+.header{
+	padding: 10px;
+	border: 10px solid rgb(121,180,183);
+	text-align: center;
+	font-size: 15px;
+	background: rgb(148,240,223);
+	color: rgb(121,180,183);
+}
+
+.container{
+	width: 40%;
+	height: 330px;
+	float: right;
+	border: solid rgb(121,180,183) 10 px;
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+.form{
+	display: flex;
+	justify-content: center;
+	padding: 30px 0;
+	margin: 0 auto;
+}
+
+.form input{
+	width: 250px;
+}
+
+.form-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 15px 100px;
+}
+
+.container2{
+	width: 40%;
+	height: 330px;
+	float: right;
+	border: solid rgb(121,180,183) 10px;
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+.aside{
+	width: 20%;
+	height: 88vh;
+	background: rgb(121,180,183);
+	float: left;
+	border: 10px solid rgb(248,240,223);
+	color: rgb(248,240,223);
+	text-align: center;
+}
+
+.aside li a{
+	display: block;
+	text-decoration: none;
+	color: rgb(0,69,80);
+	list-style: none;
+	font-size: 20px;
+	padding: 20px;
+	border-top: 2px solid rgb(248,240,223);
+	border-bottom: 2px solid rgb(248,240,223);
+}
+
+#Boton{
+	position: center;
+	top: 60px;
+	left: 100px;
+	background: rgb(121,180,183);
+	color: rgb(0,69,80);
+	height: 45px;
+	width: 100px;
+	border-radius: 9px;
+	cursor: pointer;
+}
+
+
+.container3 {
+	width: 80%;
+	height: 539px;
+	float: left;
+	/*border: red solid 10 px;*/
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+}

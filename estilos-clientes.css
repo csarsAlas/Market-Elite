@@ -1,0 +1,102 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family:"Calibri" , serif;
+	background: rgb (248, 240 , 223);
+}
+
+form input{
+	background: rgb(249,240,223);
+}
+
+.header {
+	padding:10px;
+	border: 10px solid rgb(121,180,183);
+	text-align: center;
+	font-size: 15px;
+	background: rgb(248 , 240 , 223);
+	color: rgb(121,180,183);
+}
+
+.aside{
+	width:20%;
+	height:88vh;
+	background:rbg(121,180,183);
+	float:left;
+	border:10 px solid rgb(248,240,223);
+	color: rgb(248,240,223);
+	text-align:center;
+}
+
+.aside li a {
+	display:block;
+	text-decoration: none;
+	color: rgb( 0 , 69 , 80);
+	list-style:none;
+	font-size: 20 px;
+	border-top: 2 px solid rgb(148,240,223);
+	border-bottom:2px solid rgb(248,240,223);
+}
+
+.container{
+	width:26.66%;
+	height:330 px;
+	float: right;
+	border:10 px solid rgb(121,180,183);
+	margin-top: 10px;
+	padding: 10 px;
+	text-align: center;
+}
+
+.container2{
+	width:26.66%;
+	height:330px;
+	float:right;
+	border:10 px solid rgb(121,180,183);
+	margin-top: 10px;
+	padding: 10 px;
+	text-align: center;
+
+}
+
+.container3{
+	width:26.66%;
+	height:330px;
+	float:right;
+	border:10 px solid rgb(121,180,183);
+	margin-top: 10px;
+	padding: 10 px;
+	text-align: center;
+}
+
+#bottom{
+	position:center;
+	top: 60px;
+	left: 100px;
+	background:rgb(121,180,183);
+	color:rgb(0,69,80);
+	height:45 px;
+	width:100px;
+	border-radius: 9px;
+	cursor:pointer;
+}
+
+.form{
+	margin:10px;
+}
+
+.container-tabla{
+	width:80%;
+	height:50vh;
+	float:right;
+	border: rgb(121,180,183) 10px;
+	margin-top:10 px;
+	padding: 10 px;
+	text-align:center;
+}
+
+	
