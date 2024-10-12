@@ -10,7 +10,17 @@ body {
     height: 100%;
     letter-spacing: 0.03em;
     line-height: 1.6;
-    background: #e0f7fa; /* Color de fondo suave y claro */
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Fondo degradado */
+}
+
+.header {
+    padding: 20px;
+    border: 2px solid #80deea; /* Borde del header con color más suave */
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente más grande */
+    background: #fafafa; /* Color de fondo claro para el header */
+    color: #00796b; /* Color del texto del header */
+    border-radius: 8px; /* Esquinas redondeadas */
 }
 
 .container {
@@ -45,6 +55,8 @@ body {
 .container .card img {
     width: 100%; /* Ajustado para que la imagen ocupe todo el ancho */
     height: auto; /* Mantener la proporción de la imagen */
+    border-top-left-radius: 12px; /* Esquinas redondeadas en la parte superior */
+    border-top-right-radius: 12px; /* Esquinas redondeadas en la parte superior */
 }
 
 .container .card h4 {
@@ -60,25 +72,22 @@ body {
     color: #555; /* Color del texto */
 }
 
-.container .card a {
+.container .card .button {
+    display: inline-block; /* Hace que el enlace se comporte como un botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    margin: 15px 0; /* Espaciado superior e inferior del botón */
     font-weight: 500;
     text-decoration: none;
-    color: #007bff; /* Color del enlace */
-    transition: color 0.3s ease-in-out; /* Transición suave para el color del enlace */
+    color: #ffffff; /* Color del texto del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transición suave para el color y transformación */
 }
 
-.container .card a:hover {
-    color: #0056b3; /* Color del enlace al pasar el cursor */
+.container .card .button:hover {
+    background-color: #0056b3; /* Color del botón al pasar el cursor */
+    transform: scale(1.05); /* Efecto de aumentar el tamaño del botón */
 }
 
-.header {
-    padding: 20px;
-    border: 2px solid #80deea; /* Borde del header con color más suave */
-    text-align: center;
-    font-size: 18px; /* Tamaño de fuente más grande */
-    background: #fafafa; /* Color de fondo claro para el header */
-    color: #00796b; /* Color del texto del header */
-    border-radius: 8px; /* Esquinas redondeadas */
-}
 
 
