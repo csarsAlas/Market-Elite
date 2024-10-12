@@ -10,16 +10,17 @@ body {
     height: 100%;
     letter-spacing: 0.03em;
     line-height: 1.6;
-    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Fondo degradado */
+    background: linear-gradient(to right, #001f3f, #003366); /* Fondo degradado en tonos de azul oscuro */
+    color: #ffffff; /* Color del texto por defecto en blanco */
 }
 
 .header {
     padding: 20px;
-    border: 2px solid #80deea; /* Borde del header con color más suave */
+    border: 2px solid #005f73; /* Borde del header en un tono más oscuro */
     text-align: center;
     font-size: 24px; /* Tamaño de fuente más grande */
-    background: #fafafa; /* Color de fondo claro para el header */
-    color: #00796b; /* Color del texto del header */
+    background: #004d66; /* Color de fondo oscuro para el header */
+    color: #ffffff; /* Color del texto del header */
     border-radius: 8px; /* Esquinas redondeadas */
 }
 
@@ -38,18 +39,18 @@ body {
     width: 300px; /* Ajustado para un diseño más uniforme */
     height: 400px; /* Ajustado para un diseño más uniforme */
     border-radius: 12px; /* Esquinas redondeadas más suaves */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
     overflow: hidden;
     margin: 15px;
     text-align: center;
     transition: all 0.3s ease-in-out; /* Transición más suave */
-    background: #ffffff; /* Fondo blanco para las tarjetas */
-    border: 1px solid #ddd; /* Borde ligero para las tarjetas */
+    background: #002f4b; /* Fondo de las tarjetas en un azul más oscuro */
+    border: 1px solid #005f73; /* Borde ligero para las tarjetas */
 }
 
 .container .card:hover {
     transform: translateY(-10px); /* Efecto de elevar la tarjeta al pasar el cursor */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Sombra más intensa */
 }
 
 .container .card img {
@@ -62,14 +63,14 @@ body {
 .container .card h4 {
     font-weight: 600;
     margin: 15px 0;
-    color: #333; /* Color del texto */
+    color: #ffffff; /* Color del texto en blanco */
 }
 
 .container .card p {
     padding: 0 1rem;
     font-size: 16px;
     font-weight: 300;
-    color: #555; /* Color del texto */
+    color: #e0f7fa; /* Color del texto más claro */
 }
 
 .container .card .button {
@@ -79,13 +80,13 @@ body {
     font-weight: 500;
     text-decoration: none;
     color: #ffffff; /* Color del texto del botón */
-    background-color: #007bff; /* Color de fondo del botón */
+    background-color: #005f73; /* Color de fondo del botón */
     border-radius: 5px; /* Esquinas redondeadas del botón */
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transición suave para el color y transformación */
 }
 
 .container .card .button:hover {
-    background-color: #0056b3; /* Color del botón al pasar el cursor */
+    background-color: #004d66; /* Color del botón al pasar el cursor */
     transform: scale(1.05); /* Efecto de aumentar el tamaño del botón */
 }
 
