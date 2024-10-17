@@ -16,7 +16,7 @@ if(isset($_POST['Guardar'])){
 
 if(isset($_POST['Buscar'])){
     $sentencia = $conn->prepare('SELECT cantf_cli FROM cliente WHERE ID_cli=:iDclie');
-    $sentencia->bindParam('iDclie',$POST['iDclie']);
+    $sentencia->bindParam('iDclie',$_POST['iDclie']);
     $sentencia->execute();
     $cliente = $sentencia->fetchALL(PDO::FETCH_ASSOC);
 
@@ -30,13 +30,13 @@ if(isset($_POST['Buscar'])){
     if($resta==0){
         $actualizar = $conn->prepare('UPDATE cliente SET fia_cli=:fia_cli, cant_cli=descuento WHERE ID_cli=:iDclie');
         $actualizar->bindParam(':iDclie',$_POST['iDclie']);
-        $actualizar->bienParam('fia_cli', $estatus);
+        $actualizar->bindParam(':fia_cli', $estatus);
         $actualizar->bindParam(':descuento',$resta);
         $actualizar->execute();
     }else{
         $actualizar = $conn->prepare('UPDATE cliente SET fia_cli=:fia_cli, cantf_cli=:descuento WHERE ID_cli=:iDclie');
         $actualizar->bindParam(':iDclie',$_POST['iDclie']);
-        $actualizar->bindParam('fia_cli', $estautus2);
+        $actualizar->bindParam(':fia_cli', $estatus2);
         $actualizar->bindParam(':descuento',$resta);
         $actualizar->execute();
     }
@@ -75,7 +75,29 @@ $registros = $query->fetchAll(PDO::FETCH_ASSOC);
                 element.style.display = 'none';
             }
         }
-        </script>
+
+        // Validaciones en tiempo real
+        document.addEventListener('DOMContentLoaded', function() {
+            const nombreInput = document.getElementById('nombre');
+            const telInput = document.getElementById('tel');
+
+            // Solo letras y espacios en el campo de nombre
+            nombreInput.addEventListener('input', function(e) {
+                const regex = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]*$/;
+                if (!regex.test(e.target.value)) {
+                    e.target.value = e.target.value.slice(0, -1);
+                }
+            });
+
+            // Solo números en el campo de teléfono
+            telInput.addEventListener('input', function(e) {
+                const regex = /^[0-9]*$/;
+                if (!regex.test(e.target.value)) {
+                    e.target.value = e.target.value.slice(0, -1);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -87,11 +109,9 @@ $registros = $query->fetchAll(PDO::FETCH_ASSOC);
         <h2>Eliminar cliente</h2>
         <div class="form-container">
             <form id="eli_cli" name="eli_cli" action="clientes.php" method="POST">
-                <br><br>
                 <label>ID del cliente: </label>
-                <input id="idclie" name="idclie" type="number" min="1" requerid>
-                <br><br>
-                <input id="Boton" type="submit" name="eliminar" value="eliminar" value="eliminar"><br>
+                <input id="idclie" name="idclie" type="number" min="1" required>
+                <input id="Boton" type="submit" name="eliminar" value="Eliminar"><br>
             </form>
         </div>
     </div>
@@ -100,39 +120,36 @@ $registros = $query->fetchAll(PDO::FETCH_ASSOC);
         <h2>Movimientos</h2>
         <div class="form-container">
             <form id="iDclie" name="mov_cli" action="clientes.php" method="POST">
-                <br><br>
                 <label>ID del cliente: </label>
-                <input id="iDclie" name="iDclie" type="number" min="1"requerid>
-                <br><br>
+                <input id="iDclie" name="iDclie" type="number" min="1" required>
                 <label>Abonar o Aumentar deuda 
                     <input type="number" name="mov" id="mov">
                 </label>
-                <br><br>
                 <input id="Boton" type="submit" name="Buscar" value="Buscar"><br>
             </form>
         </div>
     </div>
 
     <div class="container">
-        <h2>Clientes</h2> <br>
+        <h2>Clientes</h2>
         <div class="form">
             <form id="cliente" name="cliente" action="clientes.php" method="POST">
                 <label for="nombre">Nombre:</label>
-                <<input type="text" name="nombre" id="nombre" minlength="4" maxlength="50" required><br><br>
-                <label for="tel">Telefono:</label>
-                <input type="tel" name="tel" id="tel"required="[0-9]{3}[0-9]{3}([0-9]){4}"
-                     title="solo se admiten numeros de telefono de 10 digitos"><br><br>
-                <label for="">Fiado</label>
-                <input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()"><br><br>
+                <input type="text" name="nombre" id="nombre" minlength="4" maxlength="50" 
+                    pattern="[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios permitidos" required><br><br>
+                <label for="tel">Teléfono:</label>
+                <input type="tel" name="tel" id="tel" pattern="[0-9]{10}" 
+                    title="Debe ser un número de teléfono de 10 dígitos" required><br><br>
+                <label for="check">Fiado</label>
+                <input type="checkbox" name="check" id="check" value="1" onchange="showContent()"><br><br>
                 <div id="content" style="display: none;">
-                    <label for="">Cantidad de fiado: </label>
+                    <label for="deuda">Cantidad de fiado: </label>
                     <input type="number" name="deuda" id="deuda" min="1"><br><br>
                 </div>
                 <input type="submit" name="Guardar" id="Boton" value="Guardar">
             </form>
         </div>
     </div>
-
 
     <aside class="aside">
         <ul>
@@ -151,35 +168,23 @@ $registros = $query->fetchAll(PDO::FETCH_ASSOC);
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Celular</th>
-                    <th>Fiado(1 es si, 0 es no)</th>
+                    <th>Fiado (1 es sí, 0 es no)</th>
                     <th>Deuda</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($registros as $fila): ?>
-                <?php $cantidad = $cantidad + 1 ?>
                 <tr>
-                    <td>
-                        <?php echo $fila['ID_cli']; ?>
-                    </td>
-                    <td>
-                        <?php echo $fila['nombre_cli']; ?>
-                    </td>
-                    <td>
-                        <?php echo $fila['cel_cli']; ?>
-                    </td>
-                    <td>
-                        <?php echo $fila['fia_cli']; ?>
-                    </td>
-                    <td>
-                        <?php echo number_format($fila['cantf_cli'], 2); ?>
-                    </td>
+                    <td><?php echo $fila['ID_cli']; ?></td>
+                    <td><?php echo $fila['nombre_cli']; ?></td>
+                    <td><?php echo $fila['cel_cli']; ?></td>
+                    <td><?php echo $fila['fia_cli']; ?></td>
+                    <td><?php echo number_format($fila['cantf_cli'], 2); ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <section name="Scripts_JS">
 
     <script src="js/script3.js"></script>
     <script src="js/jquery-3.6.1.min.js"></script>
@@ -190,31 +195,22 @@ $registros = $query->fetchAll(PDO::FETCH_ASSOC);
                 language: {
                     processing: "Tratamiento en curso...",
                     search: "Buscar&nbsp;:",
-                    lengthMenu: "&nbsp;:",//Aqui esta el puesto el valor de Non-breaking space para que no se despliegue menu para modificar cuando //
+                    lengthMenu: "&nbsp;:",
                     info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
                     infoEmpty: "No existen datos.",
-                    infoFiltered: "(filtrado de MAX elementos en total)",
-                    infoPostFix:"",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
                     loadingRecords: "Cargando...",
                     zeroRecords: "No se encontraron datos con tu busqueda",
-                    emptyTable: "No hay datos disponibles en la tabla",
-                    paginete: {
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
                         first: "Primero",
                         previous: "Anterior",
                         next: "Siguiente",
                         last: "Ultimo"
-                    },
-                    aria: {
-                        sortAscending: ": active para ordenar la columna en orden ascendente",
-                        sortDescending: ": active para ordenar la columna en orden descendente"
                     }
-                },
-                scrollY: 400,
-                lengthMenu:[[10],[10]],//Complementando el valor anterior, aqui esta configurado para que por defecto se
+                }
             });
         });
-        </script>
-    </section>
+    </script>
 </body>
-
 </html>
