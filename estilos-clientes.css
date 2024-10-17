@@ -1,102 +1,132 @@
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+/* Valores preterminados */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	font-family:"Calibri" , serif;
-	background: rgb (248, 240 , 223);
-}
-
-form input{
-	background: rgb(249,240,223);
+    font-family: "Calibri", serif;
+    background: rgb(15, 15, 48); /* Fondo azul marino */
+    color: white; /* Color de texto blanco para contraste */
 }
 
 .header {
-	padding:10px;
-	border: 10px solid rgb(121,180,183);
-	text-align: center;
-	font-size: 15px;
-	background: rgb(248 , 240 , 223);
-	color: rgb(121,180,183);
+    padding: 15px;
+    border-bottom: 5px solid rgb(121, 180, 183);
+    text-align: center;
+    font-size: 26px;
+    background: rgb(121, 180, 183);
+    color: rgb(15, 15, 48);
+    margin-bottom: 15px;
 }
 
-.aside{
-	width:20%;
-	height:88vh;
-	background:rbg(121,180,183);
-	float:left;
-	border:10 px solid rgb(248,240,223);
-	color: rgb(248,240,223);
-	text-align:center;
+.container3, .container2, .container {
+    width: 26.66%;
+    height: auto;
+    float: right;
+    border: solid rgb(121, 180, 183) 10px;
+    margin-top: 10px;
+    background: rgb(30, 30, 60); /* Fondo más oscuro para los formularios */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-container {
+    margin: 10px 0; /* Espaciado entre formularios */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="tel"],
+.form input[type="checkbox"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 2px solid rgb(121, 180, 183);
+    border-radius: 5px; 
+}
+
+#Boton {
+    background: rgb(121, 180, 183);
+    color: rgb(0, 69, 80);
+    height: 45px;
+    border: none; 
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s; /* Animación suave al pasar el cursor */
+}
+
+#Boton:hover {
+    background: rgb(0, 69, 80); 
+    color: white; 
+    transform: scale(1.05); /* Escala el botón ligeramente */
+}
+
+.aside {
+    width: 20%;
+    height: 88vh;
+    background: rgb(121, 180, 183);
+    float: left;
+    border: 10px solid rgb(248, 240, 223);
+    color: rgb(0, 69, 80); /* Color de texto de enlaces */
+    text-align: center;
+    padding: 20px; 
+}
+
+.aside ul {
+    list-style: none; 
+    padding: 0; /* Eliminar padding */
+}
+
+.aside li {
+    margin: 10px 0; /* Espacio entre elementos de la lista */
 }
 
 .aside li a {
-	display:block;
-	text-decoration: none;
-	color: rgb( 0 , 69 , 80);
-	list-style:none;
-	font-size: 20 px;
-	border-top: 2 px solid rgb(148,240,223);
-	border-bottom:2px solid rgb(248,240,223);
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 69, 80);
+    font-size: 20px;
+    padding: 15px; 
+    border-radius: 5px; 
+    transition: background 0.3s, transform 0.3s; /* Animación suave al pasar el cursor */
 }
 
-.container{
-	width:26.66%;
-	height:330 px;
-	float: right;
-	border:10 px solid rgb(121,180,183);
-	margin-top: 10px;
-	padding: 10 px;
-	text-align: center;
+.aside li a:hover {
+    background: rgba(0, 69, 80, 0.5); /* Cambia el fondo al pasar el cursor */
+    transform: scale(1.05); /* Escala el enlace ligeramente */
 }
 
-.container2{
-	width:26.66%;
-	height:330px;
-	float:right;
-	border:10 px solid rgb(121,180,183);
-	margin-top: 10px;
-	padding: 10 px;
-	text-align: center;
-
+.container-tabla {
+    width: 80%;
+    float: right;
+    margin-top: 10px;
+    padding: 20px; 
+    background: rgb(30, 30, 60); /* Fondo más oscuro para la tabla */
+    border-radius: 10px; 
 }
 
-.container3{
-	width:26.66%;
-	height:330px;
-	float:right;
-	border:10 px solid rgb(121,180,183);
-	margin-top: 10px;
-	padding: 10 px;
-	text-align: center;
+table {
+    width: 100%;
+    border-collapse: collapse; 
 }
 
-#bottom{
-	position:center;
-	top: 60px;
-	left: 100px;
-	background:rgb(121,180,183);
-	color:rgb(0,69,80);
-	height:45 px;
-	width:100px;
-	border-radius: 9px;
-	cursor:pointer;
+th, td {
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid rgb(121, 180, 183); 
 }
 
-.form{
-	margin:10px;
+th {
+    background: rgb(121, 180, 183); 
 }
 
-.container-tabla{
-	width:80%;
-	height:50vh;
-	float:right;
-	border: rgb(121,180,183) 10px;
-	margin-top:10 px;
-	padding: 10 px;
-	text-align:center;
-}
 
 	
