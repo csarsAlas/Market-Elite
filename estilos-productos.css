@@ -1,139 +1,114 @@
-/*Valores preterminados*/
-
-
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+/* Valores predeterminados */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-	font-family:"Calibri",serif;
-	background:rgb(248,240,223);
+body {
+    font-family: "Calibri", serif;
+    background: rgb(15, 15, 48); /* Fondo oscuro uniforme */
+    color: rgb(248, 248, 248); /* Texto claro */
 }
 
-form input{
-	background:rgb(248,240,223);
+/* Encabezado */
+.header {
+    padding: 15px;
+    border-bottom: 5px solid rgb(121, 180, 183);
+    text-align: center;
+    font-size: 26px;
+    background: rgb(121, 180, 183);
+    color: rgb(15, 15, 48);
+    margin-bottom: 15px;
 }
 
-.header{
-	padding:10 px;
-	border:10 px solid rgb(121,180,183);
-	text-align:center;
-	font-size:15px;
-	background:rgb(248,240,223);
-	color:rgb(121,180,183);
+/* Menú de navegación superior */
+.navbar {
+    display: flex;
+    background: rgb(121, 180, 183);
+    padding: 10px;
+    border-bottom: 2px solid rgb(248, 240, 223);
 }
 
-.container{
-	width: 26.66%;
-	height: 330px;
-	float: right;
-	border:solid rgb(121,180,183) 10px;
-	margin-top: 10px;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
-.form{
-	display: flex;
-	justify-content: center;
-	padding: 30px 0;
-	margin: 0 auto;
+.navbar a {
+    text-decoration: none;
+    color: rgb(15, 15, 48);
+    font-size: 18px;
+    padding: 8px 15px;
+    transition: background 0.3s, color 0.3s;
 }
 
-.form input{
-	width: 250px;
+.navbar a:hover {
+    background: rgb(0, 69, 80);
+    color: rgb(248, 240, 223);
 }
 
-.container2{
-	width: 26.66%;
-	height: 330px;
-	float: right;
-	border: solid rgb(121,180,183) 10px;
-	margin-top: 10px;
+/* Contenedor para los formularios */
+.product-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+    background: rgb(121, 180, 183);
+    border-radius: 10px;
+    border: 2px solid rgb(248, 240, 223);
 }
 
-.container3{
-	width:26.66%;
-	height: 330px;
-	float: right;
-	border: solid rgb(121,180,183) 10px;
-	margin-top: 10px;
+.product-forms .form-box {
+    width: 80%;
+    padding: 15px;
+    background: rgb(32, 23, 46);
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid rgb(121, 180, 183);
 }
 
-.aside{
-	width:20%;
-	height: 88vh;
-	background: rgb(121,180,183);
-	float: left;
-	border: 10px solid rgb(248,240,223);
-	color: rgb(248,240,223);
-	text-align: center;
+/* Tabla de productos */
+.container4 {
+    width: 80%;  
+    margin: 20px auto;
+    background: rgb(121, 180, 183); 
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(248, 240, 223);
 }
 
-.aside li a{
-	display: block;
-	text-decoration: none;
-	color: rgb(0,69,80);
-	list-style: none;
-	font-size: 20px;
-	padding: 20px;
-	border-top: 2px solid rgb(248,240,223);
-	border-bottom: 2px solid rgb(248,240,223);
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: rgb(248, 248, 248);
 }
 
-#iName{
-	position: center;
-	top: 1px;
-	left: 100px;
+thead tr {
+    background: rgb(0, 69, 80);
 }
 
-#iPrice{
-	position: center;
-	top: 10px;
-	left: 100px;
+th, td {
+    border: 1px solid rgb(248, 240, 223);
+    padding: 10px;
+    text-align: center;
 }
 
-#Prov{
-	position: center;
-	top: 25px;
-	left: 10%;
-}
-#Sec{
-	position: center;
-	top: 40px;
-	left: 100px;
-}
-
-#Boton {
-	position: center;
-	top: 60px;
-	left: 100px;
-	background: rgb(121,180,183);
-	color: rgb(0,69,80);
-	height:45px;
-	width: 100px;
-	border-radius: 9px;
-	cursor: pointer;
+/* Botones */
+button {
+    background: rgb(0, 69, 80);
+    color: rgb(248, 240, 223);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-
-.form-container{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 15px 100px;
-}
-
-#cantidad{
-	width: 150px;
-}
-
-.container4{
-	width: 80%;
-	height: 530px;
-	float: right;
-	/*boder: solid rgb(121,180,183) 10px;*/
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+button:hover {
+    background: rgb(148, 240, 223);
+    color: rgb(0, 69, 80);
 }
