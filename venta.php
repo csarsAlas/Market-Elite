@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once 'php/connection.php';
 
 $totalPrecio = 0;
@@ -132,128 +132,113 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Abarrotes FIME</title>
-	<link rel="stylesheet" href="css/estilos-ticket.css">	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abarrotes FIME</title>
+    <link rel="stylesheet" href="css/estilos-ticket.css">
 </head>
 
 <body>
-
-
     <header class="header">
-		<h1>Market Elite</h1>
-	</header>
-	<aside class="aside">
-		<ul>
-			<li><a href="index.html">Inicio</a></li>
-			<li><a href="productos.php">Agregar Producto</a></li>
-			<li><a href="clientes.php">Agregar Cliente</a></li>
-			<li><a href="proveedor.php">Agregar Proveedor</a></li>
-			<li><a href="venta.php">Generar Ticket</a></li>
-			<li><a href="registro.php">Registro de ventas</a></li>
-		</ul>
-	</aside>
-	    <h3>Datos de la compra</h3>
-	<div class="container">
-		<div>
-			<form method="POST" action="venta.php" id="frmVentasProductos">
-			<label>ID del producto </label>
-			<input type="number" min="1" name="id_bus" value="id_bus"></input>
-			<button type="submit" name="buscar" value="buscar" >Buscar</button>
-			</form>
-		</div>
-	    <h1>Producto:</h1>
-		<p>Nombre: <?php error_reporting (0); echo $nombre; ?></p>
-        <p>Precio: $<?php error_reporting(0); echo number_format($Precio,0); ?></p>
-		<p>Marca: <?php error_reporting(0); echo $marca; ?></p>
-		<form action="venta.php" method="POST">
-			<label for="">Ingrese ID del cliente</label>
-			<input type="number" placeholder="Id del cliente" name="id_cliente" required>
+        <h1>Market Elite</h1>
+    </header>
+    <aside class="aside">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.php">Agregar Producto</a></li>
+            <li><a href="clientes.php">Agregar Cliente</a></li>
+            <li><a href="proveedor.php">Agregar Proveedor</a></li>
+            <li><a href="venta.php">Generar Ticket</a></li>
+            <li><a href="registro.php">Registro de ventas</a></li>
+        </ul>
+    </aside>
 
-			<input type="hidden" name="id_prod" value="<?php echo $id_prod ?>">
+    <main class="main-content">
+        <h3>Datos de la compra</h3>
+        <div class="container">
+            <form method="POST" action="venta.php" id="frmVentasProductos">
+                <label>ID del producto</label>
+                <input type="number" min="1" name="id_bus" placeholder="Ingrese el ID del producto" required>
+                <button type="submit" name="buscar" value="buscar">Buscar</button>
+            </form>
 
-			<input type="hidden" name="nombre" value="<?php echo $nombre; ?>">
+            <h1>Producto:</h1>
+            <p>Nombre: <?php error_reporting(0); echo htmlspecialchars($nombre); ?></p>
+            <p>Precio: $<?php error_reporting(0); echo number_format($Precio, 0); ?></p>
+            <p>Marca: <?php error_reporting(0); echo htmlspecialchars($marca); ?></p>
 
-			<label for="">Cantidad</label>
-			<input type="number" value="" name="cantidad">
+            <form action="venta.php" method="POST">
+                <label>ID del cliente</label>
+                <input type="number" placeholder="ID del cliente" name="id_cliente" required>
+                <input type="hidden" name="id_prod" value="<?php echo $id_prod ?>">
+                <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>">
+                <label>Cantidad</label>
+                <input type="number" min="1" name="cantidad" required>
+                <input type="hidden" name="precio" value="<?php echo $Precio; ?>">
+                <button type="submit" name="carrito" value="carrito">Agregar Al carrito</button>
+            </form>
+        </div>
 
-			<input type="hidden" name="precio" value="<?php echo $Precio; ?>">
+        <div class="container_table">
+            <table id="consulta">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ID Cliente</th>
+                        <th>ID Producto</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    foreach ($res as $fila): 
+                        $cantidad += $fila['cantidad'];
+                        $totalPre = $fila['precio'] * $fila['cantidad'];
+                        $total += $totalPre;
+                    ?>
+                    <tr>
+                        <td><?php echo $fila['id_carrito']; ?></td>
+                        <td><?php echo $fila['id_cliente']; ?></td>
+                        <td><?php echo $fila['id_producto']; ?></td>
+                        <td><?php echo htmlspecialchars($fila['nombre']); ?></td>
+                        <td><?php echo $fila['cantidad']; ?></td>
+                        <td>$<?php echo number_format($fila['precio']); ?></td>
+                        <td>
+                            <form method="POST" action="venta.php">
+                                <input type="hidden" name="id_carrito" value="<?php echo $fila['id_carrito']; ?>">
+                                <button type="submit" name="eliminar">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <h3>Total de productos: <?php echo $cantidad; ?></h3>
+            <h3>Total del carrito: $<?php echo number_format($total, 2); ?></h3>
 
-			<button type="submit" name="carrito" value="carrito" >Agregar Al carrito</button>
-		</form>
-	</div>
+            <form action="venta.php" method="POST">
+                <input type="hidden" name="cantidad_confirmacion" value="<?php echo $cantidad; ?>">
+                <input type="hidden" name="total_confirmacion" value="<?php echo $total; ?>">
+                <button type="submit" name="confirmar" value="confirmar">Confirmar compra</button>
+            </form>
 
-	<div class="container_table">
-		<table id="consulta" name="consulta">
-			<thead>
-				<tr>
-					<th width=16%>#</th>
-					<th width=16%>ID cliente</th>
-					<th width=16%>ID producto</th>
-					<th width=16%>Producto</th>
-					<th width=16%>Cantidad</th>
-					<th width=16%>Precio</th>
-				</tr>
-</thead>
-<tbody>
-	<?php foreach ($res as $fila):
-	           
-	    $cantidad = $cantidad + $fila['cantidad'];
-	$totalPre=$fila['precio']*$fila['cantidad'];
-	$total = $total + $totalPre;
-	?>
-	<tr>
-		<td style="text-align: center;">
-	        <?php echo $fila['id_carrito']; ?>
-		</td>
-		<td style="text-align: center;">
-		    <?php echo $fila['id_cliente']; ?>
-		</td>
-		<td style="text-align: center;">
-		    <?php echo $fila['id_producto']; ?>
-		</td>
-		<td style="text-align: center;">
-		    <?php echo $fila['nombre']; ?>
-		</td>
-		<td style="text-align: center;">
-		    <?php echo $fila['cantidad']; ?>
-		</td>
-		<td style="text-align: center;">
-		    <?php echo number_format($fila['precio']); ?>
-		</td>
-		<form method="POST" action="venta.php">
-            <input type="hidden" name="id_carrito" value="<?php echo $fila['id_carrito']; ?>" >
-			<input type="hidden" name="id_producto" value="<?php echo $fila['id_producto']; ?>" >
-            <input type="hidden" name="id_cantidad" value="<?php echo $fila['cantidad']; ?>" >
-			<td><button type="submit" name="eliminar" >Eliminar</button></td>
-		</form>
-	</tr>
-	<?php endforeach; ?>
-    </tbody>
-		</table>
-		<h3 style="text-align: right;">Total de productos: <?php echo $cantidad; ?></h3>
-		<h3 style="text-align: right;">Total del carrito: <?php echo $total; ?></h3>
-		<form action="venta.php" method="POST">
-		<input type="hidden" name="cantidad_confirmacion" value="<?php echo $cantidad; ?>" >
-		<input type="hidden" name="total_confirmacion" value="<?php echo $total; ?>" >
-		<button type="submit" name="confirmar" value="confirmar" >Confirmar compra</button>
-		</form>
-		<h1><?php echo $mensaje; ?></h1>
-		<h1><?php echo $mensajeVaciar; ?></h1>
-		<form action="venta.php" method="post">
-		<button type="submit" name="vaciar"  >Vaciar carrito</button>
-		</form>
+            <h1><?php echo $mensaje; ?></h1>
+            <h1><?php echo $mensajeVaciar; ?></h1>
 
-		</div>
-	<script src="js/script4.js"></script>
-	<script src="js/jquery-3.6.1.min.js"></script>
+            <form action="venta.php" method="post">
+                <button type="submit" name="vaciar">Vaciar carrito</button>
+            </form>
+        </div>
+    </main>
 
-
+    <script src="js/script4.js"></script>
+    <script src="js/jquery-3.6.1.min.js"></script>
 </body>
 </html>
-
 
 
 
