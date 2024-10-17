@@ -1,89 +1,121 @@
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+/* Valores predeterminados */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-	font-family: "Calibri", seref;
-	background: rgb(248,240,223);
+body {
+    font-family: "Calibri", serif;
+    background: rgb(15, 15, 48); /* Fondo ajustado */
+    color: rgb(248, 240, 223);
+    line-height: 1.6;
 }
 
-form input{
-	background: rgb(248,240,223);
+/* Encabezado */
+.header {
+    padding: 15px;
+    border-bottom: 5px solid rgb(121, 180, 183);
+    text-align: center;
+    font-size: 26px;
+    background: rgb(121, 180, 183);
+    color: rgb(15, 15, 48);
+    margin-bottom: 15px;
 }
 
-.header{
-	padding: 10px;
-	border: 10px solid rgb(121,180,183);
-	text-align: center;
-	font-size: 15px;
-	background: rgb(121,180,183);
+/* Barra lateral */
+.aside {
+    width: 20%;
+    height: auto; /* Cambiado para adaptarse al contenido */
+    background: rgb(121, 180, 183);
+    float: left;
+    border: 8px solid rgb(248, 240, 223);
+    color: rgb(248, 240, 223);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
 }
 
-.aside{
-	width: 20%;
-	height: 88vh;
-	background: rgb(121,180,183);
-	float: left;
-	border: 10px solid rgb(248,240,223);
-	color: rgb(248,240,223);
-	text-align: center;
+.aside li {
+    list-style: none;
 }
 
-.aside li a{
-	display: block;
-	text-decoration: none;
-	color: rgb(248,240,223);
-	list-style: none;
-	font-size: 20px;
-	padding: 20px;
-	border-top: 2px solid rgb(248,240,223);
-	border-bottom: 2px solid rgb(248,240,223);
+.aside li a {
+    display: block;
+    text-decoration: none;
+    color: rgb(248, 240, 223);
+    font-size: 18px;
+    padding: 15px;
+    border-top: 2px solid rgba(248, 240, 223, 0.6);
+    border-bottom: 2px solid rgba(248, 240, 223, 0.6);
+    transition: background 0.3s, transform 0.3s;
 }
 
-
-.container{
-	width: 80%;
-	height: 35vh;
-	float: right;
-	border: rgb(121,180,183) solid 10px;
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+/* Animación al pasar el cursor */
+.aside li a:hover {
+    background: rgba(248, 240, 223, 0.3); /* Mayor contraste al pasar el mouse */
+    color: rgb(15, 15, 48); /* Color del texto cambia al pasar el mouse */
+    transform: scale(1.05); /* Escala un poco menos agresiva */
 }
 
-#Boton{
-	position: center;
-	top: 60px;
-	left: 100px;
-	background: rgb(121,180,183);
-	color: rgb(248,240,223);
-	height: 45px;
-	width: 100px;
-	border-radius: 9px;
-	cursor: pointer;
+/* Contenedor principal */
+.main-content {
+    width: 75%; /* Ajustado para mejor balance */
+    min-height: 35vh; /* Altura mínima para mayor consistencia */
+    float: right;
+    margin-top: 10px;
 }
 
-.form{
-	margin: 10px;
+/* Contenedor de formularios */
+.container {
+    border: 8px solid rgb(121, 180, 183);
+    padding: 20px;
+    text-align: center;
+    background: rgb(15, 15, 48);
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espacio adicional al fondo */
 }
 
-.container-tabla{
-	width: 88%;
-	height: 50vh;
-	float: right;
-	/*border: rgb(121,180,183) solid 10 px;*/
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgb(30, 30, 60);
+    margin-bottom: 20px; /* Espacio adicional al fondo */
 }
 
-.table{
-	width: 100%;
-	border: 2px solid black;
-	border-collapse: separate;
-	border-spacing: 10px;
+th, td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    background: rgba(15, 15, 48);
+}
+
+thead {
+    background: rgba(121, 180, 183, 0.9);
+    color: rgb(248, 240, 223);
+}
+
+/* Botón */
+button {
+    background: rgb(121, 180, 183);
+    color: rgb(248, 240, 223);
+    height: 45px;
+    width: 120px;
+    border-radius: 9px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background: rgba(121, 180, 183, 
+
 }
 
 
