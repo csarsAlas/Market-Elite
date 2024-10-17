@@ -1,105 +1,120 @@
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+/* Valores preterminados */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	font-family: "Calibri", serif;
-	background: rgb(248,240,223);
+    font-family: "Calibri", serif;
+    background: rgb(15, 15, 48); /* Fondo oscuro */
+    color: rgb(248, 248, 248); /* Color de texto claro */
 }
 
-form input{
-	background: rgb(248,240,223);
+form input {
+    background: rgb(248, 240, 223);
 }
 
-.header{
-	padding: 10px;
-	border: 10px solid rgb(121,180,183);
-	text-align: center;
-	font-size: 15px;
-	background: rgb(148,240,223);
-	color: rgb(121,180,183);
+/* Estilos para el encabezado */
+.header {
+    padding: 15px;
+    border-bottom: 5px solid rgb(121, 180, 183);
+    text-align: center;
+    font-size: 26px;
+    background: rgb(121, 180, 183);
+    color: rgb(15, 15, 48);
+    margin-bottom: 15px;
 }
 
-.container{
-	width: 40%;
-	height: 330px;
-	float: right;
-	border: solid rgb(121,180,183) 10 px;
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+/* Estilos para contenedores */
+.container {
+    width: 40%;
+    height: 330px;
+    float: right;
+    border: solid rgb(121, 180, 183) 10px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
-.form{
-	display: flex;
-	justify-content: center;
-	padding: 30px 0;
-	margin: 0 auto;
+.form {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    margin: 0 auto;
 }
 
-.form input{
-	width: 250px;
+.form input {
+    width: 250px;
 }
 
-.form-container{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 15px 100px;
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px 100px;
 }
 
-.container2{
-	width: 40%;
-	height: 330px;
-	float: right;
-	border: solid rgb(121,180,183) 10px;
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+.container2 {
+    width: 40%;
+    height: 330px;
+    float: right;
+    border: solid rgb(121, 180, 183) 10px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
-.aside{
-	width: 20%;
-	height: 88vh;
-	background: rgb(121,180,183);
-	float: left;
-	border: 10px solid rgb(248,240,223);
-	color: rgb(248,240,223);
-	text-align: center;
+/* Estilos para el menú lateral */
+.aside {
+    width: 20%;
+    height: 88vh;
+    background: rgb(121, 180, 183);
+    float: left;
+    border: 10px solid rgb(248, 240, 223);
+    color: rgb(0, 69, 80);
+    text-align: center;
+    padding-top: 20px;
 }
 
-.aside li a{
-	display: block;
-	text-decoration: none;
-	color: rgb(0,69,80);
-	list-style: none;
-	font-size: 20px;
-	padding: 20px;
-	border-top: 2px solid rgb(248,240,223);
-	border-bottom: 2px solid rgb(248,240,223);
+.aside li a {
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 69, 80);
+    list-style: none;
+    font-size: 20px; /* Tamaño de fuente grande */
+    padding: 20px;
+    border-top: 2px solid rgb(248, 240, 223);
+    border-bottom: 2px solid rgb(248, 240, 223);
+    transition: background 0.3s, color 0.3s; /* Animación suave */
 }
 
-#Boton{
-	position: center;
-	top: 60px;
-	left: 100px;
-	background: rgb(121,180,183);
-	color: rgb(0,69,80);
-	height: 45px;
-	width: 100px;
-	border-radius: 9px;
-	cursor: pointer;
+/* Efecto de hover para los enlaces */
+.aside li a:hover {
+    background: rgb(0, 69, 80); /* Fondo oscuro al pasar el cursor */
+    color: rgb(248, 240, 223); /* Color de texto claro al pasar el cursor */
 }
 
+#Boton {
+    background: rgb(121, 180, 183);
+    color: rgb(0, 69, 80);
+    height: 45px;
+    width: 100px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s; /* Animación suave */
+}
+
+#Boton:hover {
+    background: rgb(0, 69, 80); /* Cambio de fondo al pasar el cursor */
+    color: rgb(248, 240, 223); /* Cambio de color al pasar el cursor */
+}
 
 .container3 {
-	width: 80%;
-	height: 539px;
-	float: left;
-	/*border: red solid 10 px;*/
-	margin-top: 10px;
-	padding: 10px;
-	text-align: center;
+    width: 80%;
+    height: 539px;
+    float: left;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
 }
